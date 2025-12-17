@@ -8,29 +8,16 @@ import jakarta.validation.constraints.NotBlank;
 public class Address {
 
     @Id
-    @GeneratedValue(strategy = GenerationType.IDENTITY)
-    private Integer id;
+    private Integer employeeId;
 
-    @NotBlank(message = "Name is required")
-    private String name;
-
-    @NotBlank(message = "Address is required")
     private String address;
 
-    public Integer getId() {
-        return id;
+    public Integer getEmployeeId() {
+        return employeeId;
     }
 
-    public void setId(Integer id) {
-        this.id = id;
-    }
-
-    public String getName() {
-        return name;
-    }
-
-    public void setName(String name) {
-        this.name = name;
+    public void setEmployeeId(Integer employeeId) {
+        this.employeeId = employeeId;
     }
 
     public String getAddress() {

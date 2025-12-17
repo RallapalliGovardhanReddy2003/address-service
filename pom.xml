@@ -15,7 +15,7 @@
 	</parent>
 
 	<groupId>com.example</groupId>
-	<artifactId>consumer-service</artifactId>
+	<artifactId>address-service</artifactId>
 	<version>0.0.1-SNAPSHOT</version>
 	<name>consumer-service</name>
 	<description>Spring Boot CRUD with PostgreSQL</description>

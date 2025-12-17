@@ -30,7 +30,6 @@ public class AddressService {
 
     public Address update(Integer id, Address adsress) {
         Address existing = getById(id);
-        existing.setName(adsress.getName());
         existing.setAddress(adsress.getAddress());
         return repo.save(existing);
     }
@@ -38,5 +37,6 @@ public class AddressService {
     public void delete(Integer id) {
         repo.deleteById(id);
     }
+
 }
 

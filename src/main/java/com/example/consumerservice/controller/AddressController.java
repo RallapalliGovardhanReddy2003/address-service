@@ -46,5 +46,6 @@ public class AddressController {
         service.delete(id);
         return ResponseEntity.ok("Deleted successfully");
     }
+
 }
 
