@@ -1,26 +1,23 @@
 package com.example.consumerservice.entity;
 
 import jakarta.persistence.*;
-
-import java.util.List;
+import jakarta.validation.constraints.NotBlank;
 
 @Entity
 @Table(name = "addresses")
 public class Address {
 
     @Id
-    private Integer employeeId;
-
+    private Integer id;
+    
     private String address;
 
-
-
-    public Integer getEmployeeId() {
-        return employeeId;
+    public Integer getId() {
+        return id;
     }
 
-    public void setEmployeeId(Integer employeeId) {
-        this.employeeId = employeeId;
+    public void setId(Integer id) {
+        this.id = id;
     }
 
     public String getAddress() {
