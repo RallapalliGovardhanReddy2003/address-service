@@ -1,13 +1,14 @@
-package com.example.consumerservice.controller;
-import com.example.consumerservice.entity.Address;
-import com.example.consumerservice.service.AddressService;
+package com.example.addressservice.controller;
+import com.example.addressservice.entity.Address;
+import com.example.addressservice.service.AddressService;
 
-import jakarta.validation.Valid;
+import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.validation.annotation.Validated;
 import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
+import java.util.Map;
 
 @RestController
 @RequestMapping("/addresses")
@@ -21,8 +22,8 @@ public class AddressController {
 
     @PostMapping("/create")
     public ResponseEntity<Address> create(@Validated @RequestBody Address address) {
-        Address adsress1 =service.save(address);
-        return new ResponseEntity<>(adsress1, org.springframework.http.HttpStatus.CREATED);
+        Address addsress =service.save(address);
+        return new ResponseEntity<>(addsress, HttpStatus.CREATED);
     }
 
     @GetMapping("/getall")
@@ -37,8 +38,8 @@ public class AddressController {
 
     @PutMapping("/update/{id}")
     public ResponseEntity<Address> update(@PathVariable Integer id,
-                                          @Valid @RequestBody Address adsress) {
-        return ResponseEntity.ok(service.update(id, adsress));
+                                          @Validated @RequestBody Address address) {
+        return ResponseEntity.ok(service.update(id, address));
     }
 
     @DeleteMapping("/delete/{id}")
@@ -51,10 +52,9 @@ public class AddressController {
         List<Address> addresses = service.getAllAddresses();
         return ResponseEntity.ok(addresses);
     }
-    @GetMapping("/employeeid/{Id}")
-    public ResponseEntity<List<Address>> getAddressesByEId(@PathVariable Integer Id) {
-        List<Address> addresses = service.getAddressesByEmployeeId(Id);
-        return ResponseEntity.ok(addresses);
+    @GetMapping("/employee/{employeeId}")
+    public Map<String,Object> getEmployeeWithAddresses(@PathVariable Integer employeeId){
+        return service.getEmployeeWithAddresses(employeeId);
     }
 
 }

@@ -1,5 +1,5 @@
-package com.example.consumerservice.repository;
-import com.example.consumerservice.entity.Address;
+package com.example.addressservice.repository;
+import com.example.addressservice.entity.Address;
 import org.springframework.data.jpa.repository.JpaRepository;
 
 import java.util.List;

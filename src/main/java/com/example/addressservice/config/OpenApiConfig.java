@@ -1,4 +1,4 @@
-package com.example.consumerservice.config;
+package com.example.addressservice.config;
 
 import io.swagger.v3.oas.models.OpenAPI;
 import io.swagger.v3.oas.models.info.Info;

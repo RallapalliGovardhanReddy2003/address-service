@@ -1,7 +1,6 @@
-package com.example.consumerservice.entity;
+package com.example.addressservice.entity;
 
 import jakarta.persistence.*;
-import jakarta.validation.constraints.NotBlank;
 
 @Entity
 @Table(name = "addresses")
