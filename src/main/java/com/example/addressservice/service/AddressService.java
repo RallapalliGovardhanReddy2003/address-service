@@ -13,12 +13,13 @@ import java.util.Map;
 
 @Service
 public class AddressService {
+
+    private static final  Logger logger = LoggerFactory.getLogger(AddressService.class);
     @Autowired
     private final AddressRepository repo;
     @Autowired
     private EmployeeClient employeeClient;
-    private static final Logger logger =
-            LoggerFactory.getLogger(AddressService.class);
+
 
     public AddressService(AddressRepository repo) {
         this.repo = repo;
@@ -68,7 +69,7 @@ public class AddressService {
         logger.info("calling employee service id :{}", employeeId);
 
         Map<String, Object> employee = employeeClient.getEmployeeById(employeeId);
-        logger.info("Employee response:{}", employee);
+        logger.info("Employee response from Employee-service :{}", employee);
 
         List<Address> address = repo.findByEmployeeId(employeeId);
 
@@ -76,6 +77,9 @@ public class AddressService {
         Map<String, Object> response = new LinkedHashMap<>();
         response.put("employee", employee);
         response.put("Address", address);
+
+
+        logger.info("Final response:{}", response);
 
 
         return response;
